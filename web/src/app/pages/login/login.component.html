@@ -5,6 +5,9 @@
         <div class="card login-page shadow">
           <div class="card-body">
             <h4 class="card-title text-center">Welcome</h4>
+            <h3 class="invalid-login" [hidden]="!isInvalidCredentials">
+              Invalid Username/Password
+            </h3>
             <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
               <div class="row">
                 <div class="form-inputs">
@@ -35,6 +38,7 @@
                 <div class="col-lg-12 mb-0">
                   <div class="form-inputs">
                     <div class="d-grid">
+                      <p class="hint">Username and password is admin</p>
                       <button type="submit" class="btn btn-primary">
                         Log In
                       </button>

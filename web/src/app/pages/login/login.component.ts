@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
     email: '',
     password:'',
   }
+
+  isInvalidCredentials = false;
   
 
 
@@ -44,7 +46,13 @@ export class LoginComponent implements OnInit {
     const email = this.form.email.value;
     const password = this.form.password.value;
     console.log(email + '\n' + password);
-    this.router.navigate(['/home'], {replaceUrl: true});
+    if(email == 'admin' && password == 'admin'){
+
+      this.router.navigate(['/home'], {replaceUrl: true});
+      this.isInvalidCredentials =false;
+    } else {
+      this.isInvalidCredentials = true;
+    }
   }
 
 }

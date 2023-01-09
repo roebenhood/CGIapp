@@ -519,6 +519,7 @@ mat-card-header {
   padding-left: 0;
   text-align: center;
   margin-right: 16px;
+  color: #000000;
 }
 
 .center-items {
@@ -583,4 +584,15 @@ mat-card-header {
 }
 .button-spacing {
   margin-right: 8px;
+}
+
+.invalid-login {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+.hint {
+  font-size: 12px;
+  text-align: center;
 }
