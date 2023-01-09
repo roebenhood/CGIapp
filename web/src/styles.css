@@ -52,6 +52,9 @@ body {
 .form-inputs {
   margin-top: 12px;
 }
+.form-inputs input {
+  margin-top: 16px;
+}
 
 .form-inputs .btn {
   margin-top: 24px;
@@ -423,6 +426,7 @@ mat-card-header {
 }
 .align-right {
   text-align: right;
+  align-items: flex-end;
 }
 .align-justify {
   text-align: justify;
@@ -472,14 +476,6 @@ mat-card-header {
   margin-top: 32px;
   display: flex;
   flex-direction: column;
-}
-
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
 }
 
 .contact-info {
@@ -548,4 +544,43 @@ mat-card-header {
 
 .footer-section {
   padding: 15px;
+}
+
+/* sampling */
+
+.test-content {
+  height: max-content;
+  width: max-content;
+}
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+/* career objectives */
+.career-margin {
+  margin-top: 128px;
+}
+
+.career-card-margin {
+  margin-top: 8px;
+}
+
+.career-list {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.input-group-append {
+  cursor: pointer;
+}
+
+.icon-container {
+  text-align: center;
+}
+.button-spacing {
+  margin-right: 8px;
 }

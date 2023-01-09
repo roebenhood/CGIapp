@@ -1,0 +1,141 @@
+<div class="container career-margin">
+  <div class="row">
+    <div class="col-lg-6 col-md12 test-content flex-item">
+      <form class="was-validated" [formGroup]="fg" name="=myForm">
+        <div class="mb-3">
+          <label for="validationTextarea" class="form-label">Goal</label>
+          <input
+            [(ngModel)]="goal.id"
+            formControlName="goalId"
+            type="text"
+            class="form-control is-invalid"
+            id="validationTextarea"
+            hidden
+          />
+          <input
+            [(ngModel)]="goal.name"
+            formControlName="goalName"
+            type="text"
+            class="form-control is-invalid"
+            id="validationTextarea"
+            placeholder="What is your next goal?"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="validationTextarea" class="form-label">Description</label>
+          <textarea
+            [(ngModel)]="goal.description"
+            formControlName="goalDescription"
+            class="form-control is-invalid"
+            id="validationTextarea"
+            placeholder="Goal description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="validationTextarea" class="form-label"
+            >Target date to complete</label
+          >
+          <input
+            [(ngModel)]="goal.targetDate"
+            formControlName="targetDate"
+            type="date"
+            class="form-control is-invalid"
+            id="validationTextarea"
+            placeholder="What is your next goal?"
+            required
+          />
+        </div>
+
+        <div class="form-check">
+          <input
+            value="false"
+            (click)="clickedRDbtn(false)"
+            type="radio"
+            class="form-check-input"
+            id="no"
+            name="isCompleted"
+            checked
+            (toggle)="(false)"
+          />
+          <label class="form-check-label" for="validationFormCheck2"
+            >Goal to be completed</label
+          >
+        </div>
+        <div class="form-check mb-3">
+          <input
+            value="true"
+            (click)="clickedRDbtn(true)"
+            type="radio"
+            class="form-check-input"
+            id="yes"
+            name="isCompleted"
+            (toggle)="(false)"
+          />
+          <label class="form-check-label" for="validationFormCheck3"
+            >Goal Completed</label
+          >
+        </div>
+        <div class="mb-3" [hidden]="!isAccomplished">
+          <label for="validationTextarea" class="form-label"
+            >Date Completed
+          </label>
+          <input
+            [(ngModel)]="goal.completedDate"
+            formControlName="accomplishedDate"
+            type="date"
+            class="form-control is-invalid"
+            id="validationTextarea"
+            value="01-01-2023"
+            [required]="isAccomplished"
+          />
+        </div>
+
+        <div class="row">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="fg.invalid"
+            (click)="isUpdate ? updateData(goal.id) : saveData()"
+          >
+            {{ isUpdate ? "Save Changes" : "Submit" }}
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-6 col-md12 career-list">
+      <div class="card career-card-margin" *ngFor="let goal of careerGoals">
+        <!-- <h5 class="card-header">Featured</h5> -->
+        <div class="card-body">
+          <div class="card-title">
+            <h5>{{ goal.name }}</h5>
+          </div>
+          <p class="card-text">
+            {{ goal.description }}
+          </p>
+          <p class="card-text">
+            Target Date: {{ goal.targetDate | date : "MMM dd, yyy" }}
+          </p>
+          <p class="card-text" [hidden]="!goal.isCompleted">
+            Completed Date: {{ goal.completedDate | date : "MMM dd, yyy" }}
+          </p>
+          <button
+            (click)="deleteData(goal.id)"
+            class="btn btn-danger button-spacing"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="btn btn-success button-spacing"
+            (click)="getData(goal.id)"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 
@@ -16,14 +17,17 @@ import { MatIconModule } from '@angular/material/icon'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './sections/header/header.component';
+import { HeaderComponent } from './sections/shared/header/header.component';
 import { BannerComponent } from './sections/banner/banner.component';
-import { EducationComponent } from './sections/education/education.component';
+import { EducationComponent } from './sections/home/education/education.component';
 import {MatCardModule} from '@angular/material/card';
-import { ExperienceComponent } from './sections/experience/experience.component';
-import { ContactComponent } from './sections/contact/contact.component';
-import { FooterComponent } from './sections/footer/footer.component';
+import { ExperienceComponent } from './sections/home/experience/experience.component';
+import { ContactComponent } from './sections/home/contact/contact.component';
+import { FooterComponent } from './sections/shared/footer/footer.component';
 import { CareerComponent } from './pages/career/career.component';
+import { CareerGoalsComponent } from './sections/career/career-banner/career-goals.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CareerInputsComponent } from './sections/career/career-inputs/career-inputs.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ import { CareerComponent } from './pages/career/career.component';
     ExperienceComponent,
     ContactComponent,
     FooterComponent,
-    CareerComponent
+    CareerComponent,
+    CareerGoalsComponent,
+    CareerInputsComponent,
   ],
   imports: [
     FormsModule,
@@ -50,6 +56,9 @@ import { CareerComponent } from './pages/career/career.component';
     NgbModule,
     MdbCheckboxModule,
     MdbCollapseModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
